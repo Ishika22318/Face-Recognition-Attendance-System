@@ -1,98 +1,3 @@
-#         b1_1.place(x=445, y=800, width=200, height=40)
-
-#     #==================== attendace mark =====================
-#     # def mark_attendance(self, i, r, n, d):
-#     #     with open("kajal.csv", "r+", newline="\n") as f:
-#     #         myDataList = f.readlines()
-#     #         name_list = []
-#     #         for line in myDataList:
-#     #             entry = line.split(",")
-#     #             name_list.append(entry[0])
-#     #         if ((i not in name_list) and (r not in name_list) and (n not in name_list) and (d not in name_list)):
-#     #             now = datetime.now()
-#     #             d1 = now.strftime("%d/%m/%Y")
-#     #             dtString = now.strftime("%H:%M:%S")
-#     #             f.writelines(f"\n {i}, {r}, {n}, {d}, {dtString}, {d1}, Present")
-
-
-#     # ================= face recognition ============================
-
-#     def face_recog(self):
-#         def draw_boundary(img, classifier, scaleFactor, minNeighbors, color, text, clf):
-#             gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#             features = classifier.detectMultiScale(gray_image, scaleFactor, minNeighbors)
-
-#             coord = []
-
-#             for (x, y, w, h) in features:
-#                 cv2.rectangle(img,(x, y), (x + w, y + h), (0, 225, 0), 3)
-#                 id, predict = clf.predict(gray_image[y:y + h, x:x + w])
-#                 confidence = int((100 * (1 - predict / 300)))
-                
-#                 conn=mysql.connector.connect(host="localhost",username="root",password="Aayush@123",database="face_recognizer_db")
-
-#                 my_cursor = conn.cursor()
-#                 print(id)
-
-#                 my_cursor.execute("select Name from student where Student_id=" + str(id))
-#                 n = my_cursor.fetchone()
-#                 n = '+'.join(n)
-
-#                 my_cursor.execute("select Roll from student where Student_id=" + str(id))
-#                 r = my_cursor.fetchone()
-#                 r = '+'.join(r)
-
-#                 my_cursor.execute("select Dep from student where Student_id=" + str(id))
-#                 d = my_cursor.fetchone()
-#                 d = '+'.join(d)
-
-#                 my_cursor.execute("select Student_id from student where Student_id=" + str(id))
-#                 i = my_cursor.fetchone()
-#                 i = '+'.join(i)
-
-#                 if confidence > 77:
-#                     cv2.putText(img, f"ID:{i}", (x, y - 75), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-#                     cv2.putText(img, f"Roll:{r}", (x, y - 55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-#                     cv2.putText(img, f"Name:{n}" , (x, y - 30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-#                     cv2.putText(img, f"Department:{d}", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-#                     # self.mark_attendance(i, r, n, d)
-#                 else:
-#                     cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 3)
-#                     cv2.putText(img, "Unknown", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-
-#                 coord = [x, y, w, h]
-
-#             return coord
-
-#         def recognize(img, clf, faceCascade):
-#             coord = draw_boundary(img, faceCascade, 1.1, 10, (255, 25, 255), "Face", clf)
-#             return img
-
-#         faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-#         # clf = cv2.face.LBPHFaceRecognizer_create()
-#         clf = cv2.face.LBPHFaceRecognizer_create()
-#         clf.read("classifier.xml")
-
-#         video_cap = cv2.VideoCapture(1)
-
-#         if not (video_cap.isOpened()):
-#             print("Could not open video device")
-
-
-#         while True:
-#             ret, img = video_cap.read()
-#             img = recognize(img, clf, faceCascade)
-#             cv2.imshow("Welcome To face Recognition", img)
-
-#             if cv2.waitKey(30) & 0xFF == ord('q'):
-#                 break
-#         video_cap.release()
-#         cv2.destroyAllWindows()
-
-
-
-
-
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -103,8 +8,6 @@ import os
 import numpy as np
 from time import strftime
 from datetime import datetime
-
-
 
 class Face_Recognition:
     def __init__(self, root):
@@ -138,21 +41,19 @@ class Face_Recognition:
                       fg="white")
         b1_1.place(x=345, y=700, width=230, height=50)
 
-    #==================== attendace mark =====================
+   
     def mark_attendance(self, i, r, n, d):
         with open("student_details.csv", "r+", newline="\n") as f:
             myDataList = f.readlines()
             name_list = []
             for line in myDataList:
-                entry = line.split((","))
+                entry = line.split(",")
                 name_list.append(entry[0])
-                # print(name_list)
             if ((i not in name_list) and (r not in name_list) and (n not in name_list) and (d not in name_list)):
-                print(r + str(r not in name_list))
                 now = datetime.now()
                 d1 = now.strftime("%d/%m/%Y")
                 dtString = now.strftime("%H:%M:%S")
-                f.writelines(f"\n{i} ,{r} ,{n} ,{d} ,{dtString} ,{d1} ,Present")
+                f.writelines(f"\n{i},{r},{n},{d},{dtString},{d1},Present")
 
    
     
@@ -191,7 +92,7 @@ class Face_Recognition:
                 i = my_cursor.fetchone()
                 i = '+'.join(i)
                 
-                if confidence > 77:
+                if confidence > 80:
                     cv2.putText(img, f"ID:{i}", (x, y - 75), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
                     cv2.putText(img, f"Roll:{r}", (x, y - 55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
                     cv2.putText(img, f"Name:{n}", (x, y - 30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
