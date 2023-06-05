@@ -50,3 +50,23 @@ If you want to use it just follow the steps below.
 5. Connect Database
 6. Run the project using the command line or your IDE R
 
+# Team Details
+## Member 1
+- Name: Ishika Agarwal
+- Roll: 19ESKIT032
+- Branch: IT-A (G2)
+
+## Member 2
+- Name: Kritika Surana
+- Roll: 19ESKIT046
+- Branch: IT-A (G2)
+
+## Member 3
+- Name: Kunal Bharagatiya
+- Roll: 19ESKIT046
+- Branch: IT-A (G2)
+
+## Member 4
+- Name: Lavanya Jain
+- Roll: 19ESKIT051
+- Branch: IT-A (G2)
