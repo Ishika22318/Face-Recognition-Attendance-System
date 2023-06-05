@@ -29,29 +29,29 @@ class Developer:
        
 
         # Developer info
-        dev_label = Label(main_frame, text="Lavanya Jain", font=("times new roman", 20, "bold"))
+        dev_label = Label(main_frame,text="Ishika Agarwal",  font=("times new roman", 20, "bold"))
         dev_label.place(x=125, y=15)
 
-        dev_label = Label(main_frame, text="19ESKIT051", font=("times new roman", 20, "bold"))
+        dev_label = Label(main_frame, text="19ESKIT032", font=("times new roman", 20, "bold"))
         dev_label.place(x=130, y=55)
 
-        dev_labe2 = Label(main_frame, text="Ishika Agarwal", font=("times new roman", 20, "bold"))
+        dev_labe2 = Label(main_frame,text="Kritika Surana", font=("times new roman", 20, "bold"))
         dev_labe2.place(x=125, y=155)
 
-        dev_labe2 = Label(main_frame, text="19ESKIT032", font=("times new roman", 20, "bold"))
+        dev_labe2 = Label(main_frame, text="19ESKIT046", font=("times new roman", 20, "bold"))
         dev_labe2.place(x=130, y=195)
 
-        dev_labe2 = Label(main_frame, text="Kritika Surana", font=("times new roman", 20, "bold"))
+        dev_labe2 = Label(main_frame,  text="Kunal Bharagatiya", font=("times new roman", 20, "bold"))
         dev_labe2.place(x=125, y=295)
 
-        dev_labe2 = Label(main_frame, text="19ESKIT046", font=("times new roman", 20, "bold"))
+        dev_labe2 = Label(main_frame, text="19ESKIT048", font=("times new roman", 20, "bold"))
         dev_labe2.place(x=130, y=335)
 
 
-        dev_labe2 = Label(main_frame, text="Kunal Bharagatiya", font=("times new roman", 20, "bold"))
+        dev_labe2 = Label(main_frame,  text="Lavanya Jain",font=("times new roman", 20, "bold"))
         dev_labe2.place(x=125, y=435)
 
-        dev_labe2 = Label(main_frame, text="19ESKIT048", font=("times new roman", 20, "bold"))
+        dev_labe2 = Label(main_frame, text="19ESKIT051", font=("times new roman", 20, "bold"))
         dev_labe2.place(x=130, y=475)
 
 
